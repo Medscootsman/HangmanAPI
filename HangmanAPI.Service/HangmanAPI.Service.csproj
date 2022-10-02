@@ -9,10 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Collection" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.EF6" Version="2.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
     <ProjectReference Include="..\..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
     <ProjectReference Include="..\HangmanAPI.Data\HangmanAPI.Data.csproj" />
   </ItemGroup>

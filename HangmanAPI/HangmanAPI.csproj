@@ -10,6 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Collection" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="6.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
@@ -25,12 +28,15 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
     <ProjectReference Include="..\..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
     <ProjectReference Include="..\HangmanAPI.Data\HangmanAPI.Data.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Service\HangmanAPI.Service.csproj" />
   </ItemGroup>
 
 </Project>
