@@ -3,7 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanAPI", "HangmanAPI\HangmanAPI.csproj", "{79233DF8-8F0A-4CA9-9111-771D7E01E93A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI", "HangmanAPI\HangmanAPI.csproj", "{79233DF8-8F0A-4CA9-9111-771D7E01E93A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{33C5DAFB-927F-4E42-B6DA-2DD444B6787A} = {33C5DAFB-927F-4E42-B6DA-2DD444B6787A}
+		{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B} = {9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}
+		{E3B29F55-9192-428C-9728-8799C366B958} = {E3B29F55-9192-428C-9728-8799C366B958}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Data", "HangmanAPI.Data\HangmanAPI.Data.csproj", "{33C5DAFB-927F-4E42-B6DA-2DD444B6787A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Service", "HangmanAPI.Service\HangmanAPI.Service.csproj", "{E3B29F55-9192-428C-9728-8799C366B958}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Common", "HangmanAPI.Common\HangmanAPI.Common.csproj", "{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{932093CA-AF3E-427A-A02C-B68F8FCA290D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Repository", "..\HangmanAPI.Repository\HangmanAPI.Repository.csproj", "{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanAPI.Service.Test", "..\HangmanAPI.Service.Test\HangmanAPI.Service.Test.csproj", "{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +32,30 @@ Global
 		{79233DF8-8F0A-4CA9-9111-771D7E01E93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79233DF8-8F0A-4CA9-9111-771D7E01E93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79233DF8-8F0A-4CA9-9111-771D7E01E93A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C5DAFB-927F-4E42-B6DA-2DD444B6787A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C5DAFB-927F-4E42-B6DA-2DD444B6787A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C5DAFB-927F-4E42-B6DA-2DD444B6787A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C5DAFB-927F-4E42-B6DA-2DD444B6787A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B29F55-9192-428C-9728-8799C366B958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B29F55-9192-428C-9728-8799C366B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B29F55-9192-428C-9728-8799C366B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B29F55-9192-428C-9728-8799C366B958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F395CF4-81DF-4359-BCFB-8CCD67D8B67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932093CA-AF3E-427A-A02C-B68F8FCA290D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932093CA-AF3E-427A-A02C-B68F8FCA290D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932093CA-AF3E-427A-A02C-B68F8FCA290D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932093CA-AF3E-427A-A02C-B68F8FCA290D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

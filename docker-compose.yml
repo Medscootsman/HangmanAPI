@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  hangmanapi:
+    container_name: hangmanAPI
+    image: ${DOCKER_REGISTRY-}hangmanapi
+    build:
+      context: .
+      dockerfile: HangmanAPI/Dockerfile
+    depends_on:
+        - db
+    
+  db:
+    container_name: db
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+        - "1433:1433"
+
+    environment:
+        SA_PASSWORD: "H@ngM@n!219"
+        ACCEPT_EULA: "Y"

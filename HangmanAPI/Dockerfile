@@ -10,7 +10,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["HangmanAPI/HangmanAPI.csproj", "HangmanAPI/"]
+COPY ["/HangmanAPI.csproj", "HangmanAPI/"]
 RUN dotnet restore "HangmanAPI/HangmanAPI.csproj"
 COPY . .
 WORKDIR "/src/HangmanAPI"

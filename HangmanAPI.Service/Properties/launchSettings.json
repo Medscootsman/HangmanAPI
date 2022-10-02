@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "HangmanAPI.Data": {
+    "HangmanAPI.Service": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
