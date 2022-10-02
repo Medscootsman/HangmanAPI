@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace HangmanAPI.Common.Constants {
     public static class HangmanNumberConstants {
-        public static int HANGMAN_GUESSES = 7;
+        public static int HANGMAN_MAX_GUESSES = 7;
     }
 }
