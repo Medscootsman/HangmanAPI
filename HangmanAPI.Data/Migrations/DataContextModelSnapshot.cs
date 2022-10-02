@@ -40,6 +40,9 @@ namespace HangmanAPI.Data.Migrations
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
 
+                    b.Property<int>("TotalGuesses")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("WordId")
                         .HasColumnType("uniqueidentifier");
 
