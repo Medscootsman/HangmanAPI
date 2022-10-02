@@ -1,4 +1,6 @@
-﻿using HangmanAPI.Data.Entity;
+﻿using AutoMapper;
+using HangmanAPI.Data.Entity;
+using HangmanAPI.Model.Entity;
 using HangmanAPI.Repository.Interface;
 using HangmanAPI.Service.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +13,10 @@ using System.Threading.Tasks;
 namespace HangmanAPI.Service.Service {
     public class WordService : IWordService {
         private IUnitOfWork unitOfWork;
-        public WordService(IUnitOfWork unitOfWork) {
+        private IMapper mapper;
+        public WordService(IUnitOfWork unitOfWork, IMapper mapper) {
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         public async Task<Guid> GetRandomWordId() {
@@ -24,8 +28,9 @@ namespace HangmanAPI.Service.Service {
             return randomWord.WordId;
         }
 
-        public Task<Word> GetWord(Guid id) {
-            return unitOfWork.Repository<Word>().GetByIdAsync(id);
+        public async Task<WordModel> GetWord(Guid id) {
+            var entity = await unitOfWork.Repository<Word>().GetByIdAsync(id);
+            return mapper.Map<WordModel>(entity);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HangmanAPI.Data.Entity;
+using HangmanAPI.Model.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace HangmanAPI.Service.Interface
 {
     public interface IGameService
     {
-        public Task<Game> CreateGame();
+        public Task<GameModel> CreateGame();
 
-        public Task<Game> GetGame(Guid id);
+        public Task<GameModel> GetGame(Guid id);
 
         public Task CompleteGame(Guid id);
+
     }
 }
