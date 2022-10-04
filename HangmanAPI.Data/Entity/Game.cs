@@ -23,7 +23,7 @@ namespace HangmanAPI.Data.Entity {
 
         public IEnumerable<Guess>? Guesses { get; set; }
 
-        public int TotalGuesses { get; set; }
+        public int TotalIncorrectGuesses { get; set; }
 
     }
 }
