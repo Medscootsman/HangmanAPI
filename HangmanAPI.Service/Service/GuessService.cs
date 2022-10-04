@@ -40,17 +40,20 @@ namespace HangmanAPI.Service.Service {
             }
 
             //check if the guess is correct
-            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId).Include(x => x.Word).SingleOrDefaultAsync();
+            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId).Include(x => x.Word).AsNoTracking().SingleOrDefaultAsync();
 
             if (game.Word.WordString.Contains(guess)) {
                 guessEntity.CorrectGuess = true;
             } else {
                 guessEntity.CorrectGuess = false;
             }
+            if (!guessEntity.CorrectGuess) {
+                game.TotalIncorrectGuesses++;
+            }
 
-            game.TotalGuesses++;
+            var gameModel = mapper.Map<GameModel>(game);
 
-            if (game.TotalGuesses == HangmanNumberConstants.HANGMAN_MAX_GUESSES) {
+            if (game.TotalIncorrectGuesses == HangmanNumberConstants.HANGMAN_MAX_GUESSES || gameModel.GuessedWord.Equals(gameModel.Word.WordString)) {
                 game.Completed = true;
             }
 
