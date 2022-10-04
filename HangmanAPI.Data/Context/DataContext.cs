@@ -14,6 +14,10 @@ namespace HangmanAPI.Data.Context {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {
         }
 
+        public DataContext() {
+
+        }
+
         public DbSet<Guess> Guesses { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Word> Words { get; set; }
