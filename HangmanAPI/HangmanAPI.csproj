@@ -38,5 +38,9 @@
     <ProjectReference Include="..\HangmanAPI.Data\HangmanAPI.Data.csproj" />
     <ProjectReference Include="..\HangmanAPI.Service\HangmanAPI.Service.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+     <InternalsVisibleTo Include="HangmanAPI.Test" />
+  </ItemGroup>
 
 </Project>
