@@ -27,5 +27,28 @@ namespace HangmanAPI.Service.Service {
 
             return randomWord.WordId;
         }
+
+        public async Task<WordModel> GetSingleWord(Guid id) {
+            var word = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == id).AsNoTracking().SingleOrDefaultAsync();
+            return mapper.Map<WordModel>(word);
+        }
+
+        public async Task<WordModel> CreateWord(string wordString) {
+            var word = new Word() {
+                WordId = Guid.NewGuid(),
+                WordString = wordString,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now,
+                Deleted = false
+            };
+            await unitOfWork.Repository<Word>().CreateAsync(word);
+            return mapper.Map<WordModel>(word);
+        }
+
+        public async Task<List<WordModel>> GetAllWords() {
+            var words = await unitOfWork.Repository<Word>().GetAllAsync();
+            return words.Select(x => mapper.Map<WordModel>(x)).ToList<WordModel>();
+        }
+
     }
 }

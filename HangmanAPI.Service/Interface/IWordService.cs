@@ -9,5 +9,10 @@ using System.Threading.Tasks;
 namespace HangmanAPI.Service.Interface {
     public interface IWordService {
         public Task<Guid> GetRandomWordId();
+        public Task<List<WordModel>> GetAllWords();
+        public Task<WordModel> CreateWord(string word);
+
+        public Task<WordModel> GetSingleWord(Guid id);
+
     }
 }
