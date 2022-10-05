@@ -27,10 +27,5 @@ namespace HangmanAPI.Service.Service {
 
             return randomWord.WordId;
         }
-
-        public async Task<WordModel> GetWord(Guid id) {
-            var entity = await unitOfWork.Repository<Word>().GetByIdAsync(id);
-            return mapper.Map<WordModel>(entity);
-        }
     }
 }

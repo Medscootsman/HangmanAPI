@@ -14,7 +14,5 @@ namespace HangmanAPI.Service.Interface
 
         public Task<GameModel> GetGame(Guid id);
 
-        public Task CompleteGame(Guid id);
-
     }
 }
