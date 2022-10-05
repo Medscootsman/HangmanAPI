@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>140cc9dd-0466-4077-b590-ff7fbfa619c4</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,9 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
-    <ProjectReference Include="..\..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Service\HangmanAPI.Service.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Service\HangmanAPI.Service.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
     <ProjectReference Include="..\HangmanAPI.Data\HangmanAPI.Data.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
     <ProjectReference Include="..\HangmanAPI.Service\HangmanAPI.Service.csproj" />
   </ItemGroup>
   

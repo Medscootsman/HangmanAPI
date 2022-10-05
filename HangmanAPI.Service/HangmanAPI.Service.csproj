@@ -20,5 +20,7 @@
     <ProjectReference Include="..\..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
     <ProjectReference Include="..\..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
     <ProjectReference Include="..\HangmanAPI.Data\HangmanAPI.Data.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Model\HangmanAPI.Model.csproj" />
+    <ProjectReference Include="..\HangmanAPI.Repository\HangmanAPI.Repository.csproj" />
   </ItemGroup>
 </Project>

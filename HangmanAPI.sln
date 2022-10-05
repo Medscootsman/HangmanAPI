@@ -18,15 +18,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Common", "Hangma
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{932093CA-AF3E-427A-A02C-B68F8FCA290D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Repository", "..\HangmanAPI.Repository\HangmanAPI.Repository.csproj", "{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Repository", "HangmanAPI.Repository\HangmanAPI.Repository.csproj", "{6DF0F5AD-311F-4276-A5B5-3712642DE9BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Service.Test", "..\HangmanAPI.Service.Test\HangmanAPI.Service.Test.csproj", "{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Service.Test", "HangmanAPI.Service.Test\HangmanAPI.Service.Test.csproj", "{DDB0F5F0-7B3E-435C-A8C6-47D158A0AD43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Model", "..\HangmanAPI.Model\HangmanAPI.Model.csproj", "{E804B11D-6E64-4991-BA5D-46C1A3F3085E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Model", "HangmanAPI.Model\HangmanAPI.Model.csproj", "{E804B11D-6E64-4991-BA5D-46C1A3F3085E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Test", "..\HangmanAPI.Test\HangmanAPI.Test.csproj", "{40B9BC70-92AC-46AA-BF70-434DBBD230C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanAPI.Model.Test", "..\HangmanAPI.Model.Test\HangmanAPI.Model.Test.csproj", "{B264E29F-475F-4685-A288-960D6A920E4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Model.Test", "HangmanAPI.Model.Test\HangmanAPI.Model.Test.csproj", "{B264E29F-475F-4685-A288-960D6A920E4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,10 +64,6 @@ Global
 		{E804B11D-6E64-4991-BA5D-46C1A3F3085E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E804B11D-6E64-4991-BA5D-46C1A3F3085E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E804B11D-6E64-4991-BA5D-46C1A3F3085E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40B9BC70-92AC-46AA-BF70-434DBBD230C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40B9BC70-92AC-46AA-BF70-434DBBD230C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40B9BC70-92AC-46AA-BF70-434DBBD230C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40B9BC70-92AC-46AA-BF70-434DBBD230C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
