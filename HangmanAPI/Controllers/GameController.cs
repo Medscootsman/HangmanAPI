@@ -19,6 +19,7 @@ namespace HangmanAPI.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(200, Type = typeof(Guid))]
         public async Task<IActionResult> Game() {
             var model = await gameService.CreateGame();
             if (model is null) {
@@ -28,6 +29,8 @@ namespace HangmanAPI.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(GameModel))]
+        [ProducesResponseType(200, Type = typeof(GameExportModel))]
         public async Task<IActionResult> Game(Guid id) {
             var model = await gameService.GetGame(id);
 
@@ -51,6 +54,7 @@ namespace HangmanAPI.Controllers
         }
 
         [HttpPut("guess/{id}/{guess}")]
+        [ProducesResponseType(200, Type=typeof(GuessUpdateModel))]
         public async Task<IActionResult> MakeGuess(Guid id, char guess) {
             var gameModel = await gameService.GetGame(id);
 
