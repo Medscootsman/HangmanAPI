@@ -35,6 +35,11 @@ namespace HangmanAPI.Controllers
                 return NotFound();
             }
 
+            //if the game has been completed, return the full game model.
+            if (model.Completed) {
+                return Ok(model);
+            }
+
             GameExportModel exportModel = new GameExportModel {
                 GameId = model.GameId,
                 Completed = model.Completed,
@@ -55,12 +60,6 @@ namespace HangmanAPI.Controllers
 
             var isCorrectGuess = await guessService.MakeGuess(id, Char.ToLower(guess));
             gameModel = await gameService.GetGame(id);
-
-            //if the game has been completed, return the full game model.
-
-            if (gameModel.Completed) {
-                return Ok(gameModel);
-            }
 
             GuessUpdateModel updateModel = new GuessUpdateModel {
                 CorrectGuess = isCorrectGuess,
