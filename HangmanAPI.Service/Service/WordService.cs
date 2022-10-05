@@ -29,7 +29,7 @@ namespace HangmanAPI.Service.Service {
         }
 
         public async Task<WordModel> GetSingleWord(Guid id) {
-            var word = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == id).AsNoTracking().SingleOrDefaultAsync();
+            var word = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == id && x.Deleted == false).AsNoTracking().SingleOrDefaultAsync();
             return mapper.Map<WordModel>(word);
         }
 
@@ -48,6 +48,33 @@ namespace HangmanAPI.Service.Service {
         public async Task<List<WordModel>> GetAllWords() {
             var words = await unitOfWork.Repository<Word>().GetAllAsync();
             return words.Select(x => mapper.Map<WordModel>(x)).ToList<WordModel>();
+        }
+
+        public async Task<bool> UpdateWord(WordModel model) {
+            var wordEntity = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == model.WordId && x.Deleted == false).SingleOrDefaultAsync();
+            if (wordEntity != null) {
+                wordEntity.WordString = model.WordString;
+                wordEntity.DateCreated = DateTime.Now;
+                unitOfWork.Repository<Word>().Update(wordEntity);
+                await unitOfWork.SaveChangesAsync();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteWord(Guid id) {
+            var wordToLogicDelete = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == id && x.Deleted == false).SingleOrDefaultAsync();
+
+            if (wordToLogicDelete != null) {
+                wordToLogicDelete.Deleted = true;
+                wordToLogicDelete.DateModified = DateTime.Now;
+                unitOfWork.Repository<Word>().Update(wordToLogicDelete);
+                await unitOfWork.SaveChangesAsync();
+                return true;
+            } else {
+                return false;
+            }
         }
 
     }
