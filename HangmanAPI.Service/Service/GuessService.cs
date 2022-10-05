@@ -3,6 +3,7 @@ using HangmanAPI.Common.Constants;
 using HangmanAPI.Data.Entity;
 using HangmanAPI.Model.Entity;
 using HangmanAPI.Repository.Interface;
+using HangmanAPI.Service.Helper;
 using HangmanAPI.Service.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -40,7 +41,7 @@ namespace HangmanAPI.Service.Service {
             }
 
             //check if the guess is correct
-            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId).Include(x => x.Word).AsNoTracking().SingleOrDefaultAsync();
+            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId).Include(x => x.Word).SingleOrDefaultAsync();
 
             if (game.Word.WordString.Contains(guess)) {
                 guessEntity.CorrectGuess = true;
@@ -53,7 +54,11 @@ namespace HangmanAPI.Service.Service {
 
             var gameModel = mapper.Map<GameModel>(game);
 
-            if (game.TotalIncorrectGuesses == HangmanNumberConstants.HANGMAN_MAX_GUESSES || gameModel.GuessedWord.Equals(gameModel.Word.WordString)) {
+            if(guessEntity.CorrectGuess) {
+                gameModel.Guesses.Add(mapper.Map<GuessModel>(guessEntity));
+            }
+
+            if (gameModel.TotalIncorrectGuesses == HangmanNumberConstants.HANGMAN_MAX_GUESSES || ServiceHelper.DetermineIfWordIsGuessed(gameModel.Guesses.Select(x => x.Letter).ToList(), gameModel.Word.WordString)) {
                 game.Completed = true;
             }
 
