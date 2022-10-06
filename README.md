@@ -1,7 +1,7 @@
 # HangmanAPI
 HangmanAPI is a simple simulation of the hangman game. It contains a CRUD interface for adding new words and the ability to create games and make guesses on them.
 
-#Setup
+# Setup
 Pre-requisites: Docker desktop using Linux Containers.
 To run the application locally.
 
