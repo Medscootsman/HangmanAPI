@@ -37,7 +37,17 @@ namespace HangmanAPI.Controllers {
             return Ok(await wordService.GetAllWords());
         }
 
-        [HttpPut("/")]
+        [HttpPost("{word}")]
+        [ProducesResponseType(200, Type = typeof(WordModel))]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> CreateWord(string word) {
+            var result = await wordService.CreateWord(word);
+            if (result == null) {
+                return BadRequest();
+            } else {
+                return Ok(result);
+            }
+        }
 
         [HttpPut]
         [ProducesResponseType(200)]
