@@ -39,7 +39,7 @@ namespace HangmanAPI.Service.Service {
         }
 
         public async Task<GameModel> GetGame(Guid id) {
-            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == id).Include(x => x.Guesses).Include(x => x.Word).SingleOrDefaultAsync();
+            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == id && x.Deleted == false).Include(x => x.Guesses).Include(x => x.Word).SingleOrDefaultAsync();
             if (game != null) {
                 return mapper.Map<GameModel>(game);
             } else {

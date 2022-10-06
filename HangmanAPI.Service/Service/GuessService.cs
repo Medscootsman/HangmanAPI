@@ -22,7 +22,7 @@ namespace HangmanAPI.Service.Service {
         }
 
         public async Task<GuessModel> GetGuess(Guid id) {
-            var guess = await unitOfWork.Repository<Guess>().Query().Where(x => x.GuessId == id).AsNoTracking().SingleOrDefaultAsync();
+            var guess = await unitOfWork.Repository<Guess>().Query().Where(x => x.GuessId == id && x.Deleted == false).AsNoTracking().SingleOrDefaultAsync();
             return mapper.Map<GuessModel>(guess);
         }
 
@@ -34,14 +34,14 @@ namespace HangmanAPI.Service.Service {
                 DateModified = DateTime.Now,
                 Letter = guess
             };
-            var existingGuess = await unitOfWork.Repository<Guess>().Query().Where(x => x.GameId == gameId && x.Letter.Equals(guess)).AsNoTracking().FirstOrDefaultAsync();
+            var existingGuess = await unitOfWork.Repository<Guess>().Query().Where(x => x.GameId == gameId && x.Letter.Equals(guess) && x.Deleted == false).AsNoTracking().FirstOrDefaultAsync();
 
             if (existingGuess != null) {
                 return false;
             }
 
             //check if the guess is correct
-            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId).Include(x => x.Word).SingleOrDefaultAsync();
+            var game = await unitOfWork.Repository<Game>().Query().Where(x => x.GameId == gameId && x.Deleted == false).Include(x => x.Word).SingleOrDefaultAsync();
 
             if (game.Word.WordString.Contains(guess)) {
                 guessEntity.CorrectGuess = true;
