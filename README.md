@@ -9,7 +9,7 @@ To run the application locally.
 2. Run "docker-compose" to create the database and api containers.
 3. The application should run and the swagger page should display.
 
-#Running the tests.
+# Running the tests.
 In order to run the tests, you first must create the containers so the database is accessible. Alternatively, you can point the connection string to a different database.
 The connection string will need to be changed to the following due to how the network bridge for docker works:
 `"Server=localhost;Database=HangmanAPI;User=sa;Password=H@ngM@n!219;"`
