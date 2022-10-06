@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Model", "Hangman
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Model.Test", "HangmanAPI.Model.Test\HangmanAPI.Model.Test.csproj", "{B264E29F-475F-4685-A288-960D6A920E4A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangmanAPI.Test", "HangmanAPI.Test\HangmanAPI.Test.csproj", "{E277EA6D-F6C6-42B2-8228-B76A1B093BF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B264E29F-475F-4685-A288-960D6A920E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E277EA6D-F6C6-42B2-8228-B76A1B093BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E277EA6D-F6C6-42B2-8228-B76A1B093BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E277EA6D-F6C6-42B2-8228-B76A1B093BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E277EA6D-F6C6-42B2-8228-B76A1B093BF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
