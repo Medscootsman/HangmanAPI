@@ -28,7 +28,7 @@ namespace HangmanAPI.Controllers
             return Ok(model.GameId);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(GameModel))]
         [ProducesResponseType(200, Type = typeof(GameExportModel))]
         public async Task<IActionResult> Game(Guid id) {
@@ -53,7 +53,7 @@ namespace HangmanAPI.Controllers
             return Ok(exportModel);
         }
 
-        [HttpPut("guess/{id}/{guess}")]
+        [HttpPut("{id}/{guess}")]
         [ProducesResponseType(200, Type=typeof(GuessUpdateModel))]
         public async Task<IActionResult> MakeGuess(Guid id, char guess) {
             var gameModel = await gameService.GetGame(id);

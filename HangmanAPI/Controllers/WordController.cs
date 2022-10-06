@@ -16,7 +16,7 @@ namespace HangmanAPI.Controllers {
             this.wordService = wordService;
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(WordModel))]
         public async Task<IActionResult> GetWord(Guid id) {
             if (id == Guid.Empty) {
@@ -31,25 +31,27 @@ namespace HangmanAPI.Controllers {
             return Ok(wordModel);
         }
 
-        [HttpGet("/")]
+        [HttpGet("words")]
         [ProducesResponseType(200, Type = typeof(List<WordModel>))]
         public async Task<IActionResult> GetAllWords() {
             return Ok(await wordService.GetAllWords());
         }
 
         [HttpPut("/")]
+
+        [HttpPut]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> UpdateWord(WordModel model) {
             var result = await wordService.UpdateWord(model);
-            if (result) {
-                return Ok();
+            if (result != null) {
+                return Ok(result);
             } else {
                 return BadRequest();
             }
         }
 
-        [HttpDelete("/")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> DeleteWord(Guid id) {
