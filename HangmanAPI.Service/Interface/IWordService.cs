@@ -12,7 +12,7 @@ namespace HangmanAPI.Service.Interface {
         public Task<List<WordModel>> GetAllWords();
         public Task<WordModel> CreateWord(string word);
         public Task<WordModel> GetSingleWord(Guid id);
-        public Task<bool> UpdateWord(WordModel model);
+        public Task<WordModel> UpdateWord(WordModel model);
         public Task<bool> DeleteWord(Guid id);
 
 

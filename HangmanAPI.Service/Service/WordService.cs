@@ -41,25 +41,31 @@ namespace HangmanAPI.Service.Service {
                 DateModified = DateTime.Now,
                 Deleted = false
             };
-            await unitOfWork.Repository<Word>().CreateAsync(word);
-            return mapper.Map<WordModel>(word);
+            var exisitingWord = await unitOfWork.Repository<Word>().Query().Where(x => x.WordString.Equals(wordString) && x.Deleted == false).AsNoTracking().FirstOrDefaultAsync();
+            if (exisitingWord != null) {
+                return null;
+            } else {
+                await unitOfWork.Repository<Word>().CreateAsync(word);
+                await unitOfWork.SaveChangesAsync();
+                return mapper.Map<WordModel>(word);
+            }
         }
 
         public async Task<List<WordModel>> GetAllWords() {
             var words = await unitOfWork.Repository<Word>().GetAllAsync();
-            return words.Select(x => mapper.Map<WordModel>(x)).ToList<WordModel>();
+            return words.Select(x => mapper.Map<WordModel>(x)).ToList();
         }
 
-        public async Task<bool> UpdateWord(WordModel model) {
+        public async Task<WordModel> UpdateWord(WordModel model) {
             var wordEntity = await unitOfWork.Repository<Word>().Query().Where(x => x.WordId == model.WordId && x.Deleted == false).SingleOrDefaultAsync();
             if (wordEntity != null) {
                 wordEntity.WordString = model.WordString;
-                wordEntity.DateCreated = DateTime.Now;
+                wordEntity.DateModified = DateTime.Now;
                 unitOfWork.Repository<Word>().Update(wordEntity);
                 await unitOfWork.SaveChangesAsync();
-                return true;
+                return mapper.Map<WordModel>(wordEntity);
             } else {
-                return false;
+                return null;
             }
         }
 
