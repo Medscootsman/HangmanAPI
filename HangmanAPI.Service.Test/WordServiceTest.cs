@@ -23,11 +23,23 @@ namespace HangmanAPI.Service.Test {
         }
 
         [Fact]
-        public async Task CanCreateWord() {
-            var result = await wordService.CreateWord("test");
+        public async Task CanCRUDWord() {
+            var result = await wordService.CreateWord("testserviceword");
             Assert.NotNull(result);
             Assert.IsType<WordModel>(result);
             Assert.NotEmpty(result.WordString);
+
+            result.WordString = "updatetestserviceword";
+            var updatedWord = await wordService.UpdateWord(result);
+            Assert.NotNull(updatedWord);
+            Assert.IsType<WordModel>(result);
+            Assert.Equal(result.WordString, updatedWord.WordString);
+
+            var deleteResult = await wordService.DeleteWord(updatedWord.WordId);
+            Assert.True(deleteResult);
+            var wordThatShouldBeNull = await wordService.GetSingleWord(updatedWord.WordId);
+            Assert.Null(wordThatShouldBeNull);
+
         }
 
         [Fact]
