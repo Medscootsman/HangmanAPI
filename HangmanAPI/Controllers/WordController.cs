@@ -50,7 +50,7 @@ namespace HangmanAPI.Controllers {
         }
 
         [HttpPut]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(200, Type = typeof(WordModel))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> UpdateWord(WordModel model) {
             var result = await wordService.UpdateWord(model);
