@@ -19,13 +19,13 @@ namespace HangmanAPI.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(Guid))]
+        [ProducesResponseType(201, Type = typeof(Guid))]
         public async Task<IActionResult> Game() {
             var model = await gameService.CreateGame();
             if (model is null) {
                 return StatusCode(500);
             }
-            return Ok(model.GameId);
+            return StatusCode(201, model.GameId);
         }
 
         [HttpGet("{id}")]

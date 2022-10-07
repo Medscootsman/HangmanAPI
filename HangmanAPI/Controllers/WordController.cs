@@ -45,29 +45,29 @@ namespace HangmanAPI.Controllers {
             if (result == null) {
                 return BadRequest();
             } else {
-                return Ok(result);
+                return StatusCode(201, result);
             }
         }
 
         [HttpPut]
-        [ProducesResponseType(200, Type = typeof(WordModel))]
+        [ProducesResponseType(204, Type = typeof(WordModel))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> UpdateWord(WordModel model) {
             var result = await wordService.UpdateWord(model);
             if (result != null) {
-                return Ok(result);
+                return StatusCode(204, result);
             } else {
                 return BadRequest();
             }
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> DeleteWord(Guid id) {
             var result = await wordService.DeleteWord(id);
             if (result) {
-                return Ok();
+                return StatusCode(204);
             } else {
                 return BadRequest();
             }
