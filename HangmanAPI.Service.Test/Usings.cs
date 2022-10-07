@@ -16,3 +16,4 @@ global using Moq;
 global using System.Data.Entity.Infrastructure;
 global using Xunit;
 global using HangmanAPI.Service.Service;
+global using System.Configuration;
