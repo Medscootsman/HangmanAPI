@@ -29,17 +29,12 @@ namespace HangmanAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(200, Type = typeof(GameModel))]
+        [ProducesResponseType(200, Type = typeof(GameExportModel))]
         public async Task<IActionResult> Game(Guid id) {
             var model = await gameService.GetGame(id);
 
             if (model is null) {
                 return NotFound();
-            }
-
-            //if the game has been completed, return the full game model.
-            if (model.Completed) {
-                return Ok(model);
             }
 
             GameExportModel exportModel = new GameExportModel {
