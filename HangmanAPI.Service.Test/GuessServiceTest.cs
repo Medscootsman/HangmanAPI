@@ -60,6 +60,10 @@ namespace HangmanAPI.Service.Test {
 
                 triedLetters.Add(letter);
             }
+
+            var gameObject = await gameService.GetGame(result.GameId);
+
+            Assert.True(gameObject.Completed);
         }
     }
 }
