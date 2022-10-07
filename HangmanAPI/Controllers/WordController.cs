@@ -38,7 +38,7 @@ namespace HangmanAPI.Controllers {
         }
 
         [HttpPost("{word}")]
-        [ProducesResponseType(200, Type = typeof(WordModel))]
+        [ProducesResponseType(201, Type = typeof(WordModel))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> CreateWord(string word) {
             var result = await wordService.CreateWord(word);
@@ -50,12 +50,12 @@ namespace HangmanAPI.Controllers {
         }
 
         [HttpPut]
-        [ProducesResponseType(204, Type = typeof(WordModel))]
+        [ProducesResponseType(200, Type = typeof(WordModel))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> UpdateWord(WordModel model) {
             var result = await wordService.UpdateWord(model);
             if (result != null) {
-                return StatusCode(204, result);
+                return StatusCode(200, result);
             } else {
                 return BadRequest();
             }

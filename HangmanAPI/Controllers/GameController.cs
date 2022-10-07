@@ -30,7 +30,6 @@ namespace HangmanAPI.Controllers
 
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(GameModel))]
-        [ProducesResponseType(200, Type = typeof(GameExportModel))]
         public async Task<IActionResult> Game(Guid id) {
             var model = await gameService.GetGame(id);
 
