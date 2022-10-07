@@ -13,9 +13,9 @@ namespace HangmanAPI.Service.Test.Base {
         private DataInitializer dataInitializer;
 
         public BaseServiceTest() {
-
+            var connectionString = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("ConnectionStrings")["Default"];
             dbContextOptions = new DbContextOptionsBuilder<DataContext>()
-                .UseSqlServer("Server=localhost;Database=HangmanAPI;User=sa;Password=H@ngM@n!219;")
+                .UseSqlServer(connectionString)
                 .Options;
             dataContext = new DataContext(dbContextOptions);
 
