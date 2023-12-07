@@ -15,4 +15,10 @@ In order to run the tests, you first must create the containers so the database 
 
 The connection string for development (appsettings.json) will need to be changed to use localhost as the server name for the database, instead of db when running the docker-compose for debugging. See example below
 
+running tests
+
 `"Server=localhost;Database=HangmanAPI;User=sa;Password=examplepassword;"`
+
+running DB
+
+`"Server=db;Database=HangmanAPI;User=sa;Password=examplepassword;"`
