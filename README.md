@@ -19,6 +19,6 @@ running tests
 
 `"Server=localhost;Database=HangmanAPI;User=sa;Password=examplepassword;"`
 
-running DB
+running Docker compose
 
 `"Server=db;Database=HangmanAPI;User=sa;Password=examplepassword;"`
